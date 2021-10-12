@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\docs",
+    "\\gtest",
+    "\\include",
+    "\\out",
+    "\\samples",
+    "\\sln",
+    "\\src",
+    "\\test"
+  ],
+  "SelectedNode": "\\test\\test_tset.cpp",
+  "PreviewInSolutionExplorer": false
+}

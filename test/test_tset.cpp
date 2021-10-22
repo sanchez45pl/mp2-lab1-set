@@ -296,20 +296,25 @@ TEST(TSet, check_negation_operator)
 	EXPECT_EQ(expSet, set1);
 }
 
-TEST(TSet, multiple_addition) {
-	const int size = 6;
+TEST(TSet, multiple_sum) {
+	const int size = 9;
 	TSet set(size), set1(size), set2(size), res(size);
-
+	//set = {0,1,2}
 	set.InsElem(0);
 	set.InsElem(1);
+	set.InsElem(2);
+	//set1 = {3,4,5}
+	set.InsElem(3);
+	set.InsElem(4);
+	set.InsElem(5);
+	//set2 = {6,7,8}
+	set.InsElem(6);
+	set.InsElem(7);
+	set.InsElem(8);
 
-	set1.InsElem(2);
-	set1.InsElem(3);
-
-	set2.InsElem(4);
-	set2.InsElem(5);
 	for (int i = 0; i < size; i++)
 		res.InsElem(i);
 
 	EXPECT_EQ(res, (set + set1 + set2));
+
 }

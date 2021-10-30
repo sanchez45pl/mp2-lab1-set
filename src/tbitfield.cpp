@@ -39,7 +39,7 @@ TBitField::~TBitField()
 int TBitField::GetMemIndex(const int n) const // индекс Мем для бита n
 {
 	if (n < 0 || n >= BitLen)
-		throw ("Error: out of range");
+		throw ("Error: canot get memory index because the bit does not exist");
 	return n / (sizeof(TELEM) << 3);
 
 }
@@ -47,7 +47,7 @@ int TBitField::GetMemIndex(const int n) const // индекс Мем для би
 TELEM TBitField::GetMemMask(const int n) const // битовая маска для бита n
 {
 	if (n < 0 || n >= BitLen)
-		throw ("Error: out of range");
+		throw ("Error: canot get memory mask because the bit does not exist");
 	return 1 << n % (sizeof(TELEM) << 3);
 }
 
@@ -61,7 +61,7 @@ int TBitField::GetLength(void) const // получить длину (к-во б�
 void TBitField::SetBit(const int n) // установить бит
 {
 	if (n < 0 || n >= BitLen)
-		throw ("Error: the bit does not exist");
+		throw ("Error: canot set a bit because the bit does not exist");
 
 	int index;
 	index = GetMemIndex(n);
@@ -71,7 +71,7 @@ void TBitField::SetBit(const int n) // установить бит
 void TBitField::ClrBit(const int n) // очистить бит
 {
 	if (n < 0 || n >= BitLen)
-		throw ("Error: the bit does not exist");
+		throw ("Error: canot clear a bit because the bit does not exist");
 
 	int index;
 	index = GetMemIndex(n);
@@ -81,7 +81,7 @@ void TBitField::ClrBit(const int n) // очистить бит
 int TBitField::GetBit(const int n) const // получить значение бита
 {
 	if (n < 0 || n >= BitLen)
-		throw ("Error: the bit does not exist");
+		throw ("Error: canot get a bit because the bit does not exist");
 
 	int index;
 	index = GetMemIndex(n);

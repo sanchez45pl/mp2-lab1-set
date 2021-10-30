@@ -38,16 +38,23 @@ int TSet::GetMaxPower(void) const // получить макс. к-во эл-т�
 
 int TSet::IsMember(const int Elem) const // элемент множества?
 {
+    if ((Elem < 0) || (Elem >= MaxPower)) 
+        throw ("Error: canot check an element because the elem does not exist");
+    
     return BitField.GetBit(Elem);
 }
 
 void TSet::InsElem(const int Elem) // включение элемента множества
 {
+    if ((Elem < 0) || (Elem >= MaxPower))
+        throw ("Error: canot insert an element because the elem does not exist");
     BitField.SetBit(Elem);
 }
 
 void TSet::DelElem(const int Elem) // исключение элемента множества
 {
+    if ((Elem < 0) || (Elem >= MaxPower))
+        throw ("Error: canot delete an element because the elem does not exist");
     BitField.ClrBit(Elem);
 }
 

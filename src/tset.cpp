@@ -115,9 +115,9 @@ TSet TSet::operator~(void) // дополнение
 
 istream& operator>>(istream& istr, TSet& s) // ввод
 {
-    int i;
-    istr >> i;
-    s.InsElem(i);
+    TELEM elem;
+    while (istr >> elem)
+        s.InsElem(elem);
     return istr;
 }
 

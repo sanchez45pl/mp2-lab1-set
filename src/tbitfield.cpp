@@ -193,14 +193,27 @@ TBitField TBitField::operator~(void) // отрицание
 
 istream& operator>>(istream& istr, TBitField& bf) // ввод
 {
-	int tmp;
-	for (int i = 0; i < bf.BitLen; i++) {
-		istr >> tmp;
-		if (tmp)
-			bf.SetBit(tmp);
-		else
-			bf.ClrBit(tmp);
+	string s;
+	istr >> s;
+	if (s.size() != bf.BitLen)
+		throw std::exception();
+
+	for (size_t i = 0; i < bf.BitLen; i++)
+	{
+		switch (s[i])
+		{
+		case '1':
+			bf.SetBit(i);
+			break;
+		case '0':
+			bf.ClrBit(i);
+			break;
+		default:
+			throw std::exception();
+			break;
+		}
 	}
+
 	return istr;
 }
 
